@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">About Me</string>
+    <string name="name">Bonner Jarviss</string>
+    <string name="yellow_star">Yellow Star</string>
+    <string name="bio_text">Howdy howdy howdy, I\'m Jarvis Bonner.
+        \n\nThis is a LOOONG string of text, ain\'t it?
+        \n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!
+        \n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!
+        \n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!
+        \n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!
+        \n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!
+        \n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!
+        \n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!\n\nBuh BYe!
+    </string>
+    <string name="What_is_your_nickname">What is your nickname?</string>
+    <string name="done">done</string>
+</resources>
