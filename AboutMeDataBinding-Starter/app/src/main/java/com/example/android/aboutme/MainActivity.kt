@@ -40,9 +40,19 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private val myName= MyName("Bonner Jarvis")
+    /*
+        * Call the Data Class in the MainActivity
+        *
+        * Attributes are assigned from top to bottom in the class
+     */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
+        binding.myName = myName // Defines the myName reference in the main XML with
+            // the value set earlier in this MainActivity
 
         binding.doneButton.setOnClickListener {
             addNickname(it)
@@ -59,7 +69,9 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
             // You can lead into a chunk of binding calls with binding.apply
-            nicknameText.text = binding.nicknameEdit.text
+
+            myName?.nickname = nicknameEdit.text.toString()
+
             invalidateAll() // Do this to refresh ya binding values after a change
             nicknameEdit.visibility = View.GONE
             doneButton.visibility = View.GONE

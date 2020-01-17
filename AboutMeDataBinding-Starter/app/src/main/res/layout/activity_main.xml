@@ -9,10 +9,26 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License. -->
 
-<layout>
+<!--
+    - <layout> is what you use to encapsulate views for binding
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+    - <data> is used for calling data classes in XML
+
+        - the name is usually the name of the data class
+
+        - you can reference values by "@={dataClassName.attributeName}"
+-->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="myName"
+            type="com.example.android.aboutme.MyName" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -24,7 +40,7 @@ limitations under the License. -->
             style="@style/NameStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/name"
+            android:text="@={myName.name}"
             android:textAlignment="center" />
 
         <TextView
@@ -33,7 +49,9 @@ limitations under the License. -->
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:visibility="gone" />
+            android:visibility="gone"
+            android:text="@={myName.nickname}"
+            />
 
         <EditText
             android:id="@+id/nickname_edit"
@@ -43,7 +61,8 @@ limitations under the License. -->
             android:hint="@string/What_is_your_nickname"
             android:importantForAutofill="no"
             android:inputType="textPersonName"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            />
 
         <Button
             android:id="@+id/done_button"
