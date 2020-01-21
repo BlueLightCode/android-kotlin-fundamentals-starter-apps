@@ -25,8 +25,17 @@ class TitleFragment : Fragment() {
                 container, // (optional parameter) clarifies the parent ViewGroup
                 false)
 
+        // Adds the playButton
         binding.playButton.setOnClickListener{
-            view?.findNavController()?.navigate(R.id.action_titleFragment_to_gameFragment)
+            view?.findNavController()?.navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
+        }
+        // Adds the ruleButton
+        binding.rulesButton.setOnClickListener{
+            view?.findNavController()?.navigate(TitleFragmentDirections.actionTitleFragmentToRulesFragment())
+        }
+        // Adds the aboutButton
+        binding.aboutButton.setOnClickListener{
+            view?.findNavController()?.navigate(TitleFragmentDirections.actionTitleFragmentToAboutFragment())
         }
 
         setHasOptionsMenu(true)

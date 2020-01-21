@@ -19,9 +19,12 @@ package com.example.android.navigation
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.android.navigation.databinding.ActivityMainBinding
+
+private lateinit var drawerLayout: DrawerLayout
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,13 +35,21 @@ class MainActivity : AppCompatActivity() {
         // Grabs the Navigation Controller
         val navController = this.findNavController(R.id.myNavHostFragment)
 
-        // sets up the Acion Bar for the navController in this activity
+        // sets up the Action Bar for the navController in this activity
         NavigationUI.setupActionBarWithNavController(this,navController)
+
+        // The following add the Nav Drawer menu data
+        NavigationUI.setupWithNavController(binding.navView, navController)
+
+        drawerLayout = binding.drawerLayout  //Binds drawer to the previous binding
+
+        // adds the Nav Drawer menu
+        NavigationUI.setupActionBarWithNavController(this, navController, drawerLayout)
     }
 
-    override fun onSupportNavigateUp(): Boolean {  // enables the Arrow near the top
+    override fun onSupportNavigateUp(): Boolean {  // enables the Navigation Menu stuff
         val navController = this.findNavController(R.id.myNavHostFragment)
-        return navController.navigateUp()
+        return NavigationUI.navigateUp(navController, drawerLayout)
     }
     // TODO (01) Create the new TitleFragment
     // Select File->New->Fragment->Fragment (Blank)
