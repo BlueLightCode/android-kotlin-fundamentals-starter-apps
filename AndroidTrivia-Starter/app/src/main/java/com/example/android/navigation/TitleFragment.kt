@@ -47,7 +47,7 @@ class TitleFragment : Fragment() {
         return binding.root  //outputs the inflated view
     }
 
-/*
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         Log.i("TitleFragment", "onAttach called")
@@ -85,7 +85,6 @@ class TitleFragment : Fragment() {
         Log.i("TitleFragment", "onDetach called")
     }
 
- */
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
