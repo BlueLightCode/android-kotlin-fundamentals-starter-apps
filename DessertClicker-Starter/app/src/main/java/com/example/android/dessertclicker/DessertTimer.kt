@@ -1,3 +1,5 @@
+package com.example.android.dessertclicker
+
 ///*
 // * Copyright 2019, The Android Open Source Project
 // *
