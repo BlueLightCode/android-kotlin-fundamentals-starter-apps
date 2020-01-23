@@ -29,7 +29,7 @@ private lateinit var drawerLayout: DrawerLayout
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        @Suppress("UNUSED_VARIABLE")
+        @Suppress("UNUSED_VARIABLE") //uneccessary comment I need so I can commit.
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
 
         // Grabs the Navigation Controller
