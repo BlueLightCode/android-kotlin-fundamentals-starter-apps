@@ -24,6 +24,7 @@ import com.example.android.trackmysleepquality.database.SleepDatabaseDao
 import com.example.android.trackmysleepquality.database.SleepNight
 import org.junit.Assert.assertEquals
 import org.junit.After
+import org.junit.Assert.assertNull
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -68,6 +69,38 @@ class SleepDatabaseTest {
         val tonight = sleepDao.getTonight()
         assertEquals(tonight?.sleepQuality, -1)
     }
+
+    @Test
+    @Throws(Exception::class)
+    fun insertAndUpdateNight() {
+        val night = SleepNight()
+        sleepDao.insert(night)
+
+        val tonight = sleepDao.getTonight()
+        tonight?.sleepQuality = 5
+        sleepDao.update(tonight!!)
+
+        assertEquals(5, tonight?.sleepQuality)
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun insertAndClearNight() {
+        val night = SleepNight()
+        sleepDao.insert(night)
+        sleepDao.clear()
+
+        assertNull(sleepDao.getTonight())
+    }
+
+    @Test
+    @Throws(Exception::class)
+    fun insertAndGetByKey() {
+
+        sleepDao.insert(SleepNight())
+        val tonight = sleepDao.getTonight()
+        val key = tonight?.nightId
+        assertEquals(tonight, sleepDao.get(key!!))
+
+    }
 }
-
-
