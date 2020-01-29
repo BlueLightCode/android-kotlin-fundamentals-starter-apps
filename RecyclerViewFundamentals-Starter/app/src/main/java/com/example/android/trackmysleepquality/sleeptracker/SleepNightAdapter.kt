@@ -5,7 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.ListAdapter
 import com.example.android.trackmysleepquality.R
 import com.example.android.trackmysleepquality.convertDurationToFormatted
 import com.example.android.trackmysleepquality.convertNumericQualityToString
@@ -54,17 +56,11 @@ class ViewHolder private constructor(itemView: View) : RecyclerView.ViewHolder(i
     }
 }
 
-class SleepNightAdapter : RecyclerView.Adapter<ViewHolder>() {
-    var data = listOf<SleepNight>()
-        set(value) {
-            field = value
-            notifyDataSetChanged()
-        }
-
-    override fun getItemCount() = data.size
+class SleepNightAdapter : ListAdapter<SleepNight,ViewHolder>(SleepNightDiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = data[position]
+
+        val item = getItem(position)
 
         holder.bind(item)
     }
@@ -77,3 +73,14 @@ class SleepNightAdapter : RecyclerView.Adapter<ViewHolder>() {
 
 }
 
+class SleepNightDiffCallback : DiffUtil.ItemCallback<SleepNight>() {
+    override fun areItemsTheSame(oldItem: SleepNight, newItem: SleepNight): Boolean {
+        // replaces old views off-screen with the new ones coming onto the screen
+        return oldItem.nightId == newItem.nightId
+    }
+
+    override fun areContentsTheSame(oldItem: SleepNight, newItem: SleepNight): Boolean {
+        // updates a current view with new data if there's a change
+        return oldItem == newItem
+    }
+}
