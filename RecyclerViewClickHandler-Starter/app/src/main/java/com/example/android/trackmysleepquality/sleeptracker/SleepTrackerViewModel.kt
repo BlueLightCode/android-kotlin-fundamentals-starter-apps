@@ -24,18 +24,15 @@ import androidx.lifecycle.ViewModel
 import com.example.android.trackmysleepquality.database.SleepDatabaseDao
 import com.example.android.trackmysleepquality.database.SleepNight
 import com.example.android.trackmysleepquality.formatNights
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 /**
  * ViewModel for SleepTrackerFragment.
  */
 class SleepTrackerViewModel(
-        dataSource: SleepDatabaseDao,
-        application: Application) : ViewModel() {
+    dataSource: SleepDatabaseDao,
+    application: Application
+) : ViewModel() {
 
     /**
      * Hold a reference to SleepDatabase via SleepDatabaseDao.
