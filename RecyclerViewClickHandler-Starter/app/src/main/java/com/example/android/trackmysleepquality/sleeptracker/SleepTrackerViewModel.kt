@@ -121,6 +121,13 @@ class SleepTrackerViewModel(
         get() = _navigateToSleepQuality
 
     /**
+     * Stores sleep.id key once a user selects an id to check the details for
+     * */
+    private val _navigateToSleepDetail = MutableLiveData<Long>()
+    val navigateToSleepDetail
+        get() = _navigateToSleepDetail
+
+    /**
      * Call this immediately after calling `show()` on a toast.
      *
      * It will clear the toast request, so if the user rotates their phone it won't show a duplicate
@@ -245,5 +252,13 @@ class SleepTrackerViewModel(
     override fun onCleared() {
         super.onCleared()
         viewModelJob.cancel()
+    }
+
+    fun onSleepNightClicked(id: Long) {
+        _navigateToSleepDetail.value = id
+    }
+
+    fun onSleepDetailNavigated() {
+        _navigateToSleepDetail.value = null
     }
 }

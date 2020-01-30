@@ -67,6 +67,10 @@ class SleepTrackerFragment : Fragment() {
                         this, viewModelFactory).get(SleepTrackerViewModel::class.java)
 
         val adapter = SleepNightAdapter()
+        
+        val manager = GridLayoutManager(activity, 3)
+        binding.sleepList.layoutManager = manager
+
 
         binding.sleepList.adapter = adapter
 
@@ -119,9 +123,6 @@ class SleepTrackerFragment : Fragment() {
                 sleepTrackerViewModel.doneNavigating()
             }
         })
-
-        val manager = GridLayoutManager(activity, 3)
-        binding.sleepList.layoutManager = manager
 
 
         return binding.root
