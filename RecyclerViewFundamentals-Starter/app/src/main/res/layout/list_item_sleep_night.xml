@@ -36,7 +36,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/quality_image"
             app:layout_constraintTop_toTopOf="@+id/quality_image"
-            app:sleepImage="@{sleep}"
+            app:sleepDurationFormatted="@{sleep}"
             tools:text="Wednesday" />
 
         <TextView
