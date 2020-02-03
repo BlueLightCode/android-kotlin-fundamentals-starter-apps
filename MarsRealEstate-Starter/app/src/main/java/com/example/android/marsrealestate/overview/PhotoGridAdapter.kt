@@ -32,8 +32,11 @@ class PhotoGridAdapter : ListAdapter<MarsProperty,
         parent: ViewGroup,
         viewType: Int
     ): PhotoGridAdapter.MarsPropertyViewHolder {
-        return MarsPropertyViewHolder(GridViewItemBinding.inflate(
-            LayoutInflater.from(parent.context)))
+        return MarsPropertyViewHolder(
+            GridViewItemBinding.inflate(
+                LayoutInflater.from(parent.context)
+            )
+        )
     }
 
     override fun onBindViewHolder(holder: PhotoGridAdapter.MarsPropertyViewHolder, position: Int) {
@@ -51,9 +54,10 @@ class PhotoGridAdapter : ListAdapter<MarsProperty,
         }
     }
 
-    class MarsPropertyViewHolder(private var binding:
-                                 GridViewItemBinding
-    ):
+    class MarsPropertyViewHolder(
+        private var binding:
+        GridViewItemBinding
+    ) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(marsProperty: MarsProperty) {
             binding.property = marsProperty
