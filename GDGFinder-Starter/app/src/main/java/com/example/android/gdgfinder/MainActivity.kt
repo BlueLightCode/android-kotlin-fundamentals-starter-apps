@@ -56,6 +56,8 @@ class MainActivity : AppCompatActivity() {
         // first find the nav controller
         val navController = findNavController(R.id.nav_host_fragment)
 
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
         setSupportActionBar(binding.toolbar)
 
         // then setup the action bar, tell it about the DrawerLayout
